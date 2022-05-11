@@ -1,0 +1,272 @@
+////////// Theme Vars //////////
+//Spacing//
+
+$container-width: 86%;
+
+$wrap-width: 70%;
+
+$li-space: 15px;
+
+$alternate-color: #9eca8f;
+
+$header-bg: #f7f7f7;
+
+$footer-bg: #194b25;
+
+$bottom-footer-bg: #133c1e;
+
+//Font-colors//
+$title-color: #333333;
+
+$subtitle-color: #666;
+
+$body-color: #999;
+
+$nav-color: #000;
+
+$nav-h-color: #66ccff;
+
+//Font-size//
+$h1: 72px;
+
+$h2: 26px;
+
+$h3: 24px;
+
+$h4: 18px;
+
+$h5: 16px;
+
+$flow: 20px;
+
+$nav: 14px;
+
+$small: 12px;
+
+//colors//
+$t: transparent;
+
+$t-b: rgba(47, 47, 47, 0.5);
+
+$t-w: rgba(255, 255, 255, 0.5);
+
+$wrongColor: #eb4932;
+
+$rightColor: #4caa4f;
+
+$fbColor: #3b5998;
+$fbActiveColor: #293e69;
+
+$googleColor: #ffffff;
+$googleActiveColor: #eeeeee;
+
+//size//
+$space: 25px;
+
+$full-width: 100vw !important;
+$half-width: 50vw !important;
+$quater-width: 25vw !important;
+
+$full-height: 100vh;
+$half-height: 50vh;
+$header-height: 90px;
+$small-header-height: 75px;
+$banner-height: 70vh;
+$section-header-height: 150px;
+$logo-height: 100px;
+$footer-height: 290px;
+
+// Properties
+// buttons
+$button-height: 25px;
+$button-width: 100px;
+$button-font: "helvetica";
+$button-bg: #66ccff;
+
+$primaryColor: #cc4673;
+$secondaryColor: #868fe1;
+
+///////////		RESPONSIVE MIXINS	//////////////
+@mixin mobile {
+    @media screen and (max-width: 640px) {
+        @content;
+    }
+}
+@mixin small {
+    @media screen and (max-width: 320px) and (min-width: 0px) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin sm-laptop {
+    @media screen and (max-width: 1366px) {
+        @content;
+    }
+}
+
+@mixin xlarge {
+    @media screen and (min-width: 1441px) {
+        @content;
+    }
+}
+@mixin snormal {
+    @media (min-width: 1025px) and (max-width: 14401px) {
+        @content;
+    }
+}
+
+@mixin mobile-portrait {
+    @media screen and (max-device-width: 640px) and (orientation: portrait) {
+        @content;
+    }
+}
+@mixin mobile-landscape {
+    @media screen and (max-device-width: 768px) and (orientation: landscape) {
+        @content;
+    }
+}
+@mixin tab-portrait {
+    @media only screen and (max-device-width: 768px) and (orientation: portrait) {
+        @content;
+    }
+}
+@mixin tab-landscape {
+    @media only screen and (max-device-width: 1024px) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin vendor($name, $argument) {
+    -webkit-#{$name}: #{$argument};
+    -ms-#{$name}: #{$argument};
+    -moz-#{$name}: #{$argument};
+    -o-#{$name}: #{$argument};
+    #{$name}: #{$argument};
+}
+
+////////////	Utility Mixins 		//////////////////
+
+@mixin nav() {
+    font-size: $nav-size;
+    font-family: $nav-font;
+    a {
+        color: $nav-color;
+    }
+}
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content;
+    }
+    :-moz-placeholder {
+        @content;
+    }
+    ::-moz-placeholder {
+        @content;
+    }
+    :-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin box(
+    $bg: transparent,
+    $p: 15px,
+    $r: 0px,
+    $b: transparent,
+    $s: transparent
+) {
+    background-color: $bg;
+    padding: $p;
+    border-radius: $r;
+    border: 1px solid $b;
+    box-shadow: 2px 2px 2px $s, -2px 2px 2px $s;
+}
+
+@mixin round($width, $border: transparent, $shadow: transparent) {
+    width: $width;
+    height: $width;
+    border-radius: $width / 2;
+    border: 1px solid $border;
+    box-shadow: 1px 1px 1px $shadow;
+}
+@mixin button(
+    $color,
+    $bg,
+    $border: transparent,
+    $shadow: transparent,
+    $radius: 0px
+) {
+    color: $color;
+    background-color: $bg;
+    border: 1px solid $border;
+    box-shadow: 1px 2px 2px $shadow;
+    border-radius: $radius;
+}
+
+@mixin line-clamp($lineheight, $maxlines) {
+    overflow: hidden;
+    line-height: $lineheight;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    height: $lineheight * $maxlines; /* fallback */
+    -webkit-line-clamp: $maxlines; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+///////////		Utility Classes 	///////////
+
+div.container,
+section.container {
+    // width: $container-width;
+    // margin: 25px auto;
+}
+section.wide {
+    width: $full-width;
+    margin: 25px 0;
+}
+.center {
+    text-align: center;
+}
+.v-container {
+    display: table;
+}
+.v-container .vac {
+    display: table-cell;
+    vertical-align: middle;
+}
+li {
+    list-style: none;
+}
+ul.inline {
+    li {
+        display: inline-block;
+    }
+}
+
+.no-margin {
+    margin: 0;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
